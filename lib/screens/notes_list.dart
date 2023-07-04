@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_app/screens/input_notes_details.dart';
 
 class NotesListScreen extends StatefulWidget {
+  static const routeName = '/notes_list_screen';
   const NotesListScreen({Key? key}) : super(key: key);
 
   @override
@@ -38,7 +40,7 @@ class _NotesListScreenState extends State<NotesListScreen> {
               subtitle: Text("Subtitle"),
               trailing: Icon(Icons.delete),
               onTap: () {
-                debugPrint("ListItem Clicked");
+                Navigator.of(context).pushNamed(InputNotesDetails.routeName);
               },
             ),
           );
