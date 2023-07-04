@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'home.dart';
+import 'screens/notes_list.dart';
 
 void main(){
   runApp(MaterialApp(
-      home: Home() ));
+    debugShowCheckedModeBanner: false,
+      home: NotesListScreen() ));
 }
