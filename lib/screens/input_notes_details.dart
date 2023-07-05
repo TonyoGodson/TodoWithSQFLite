@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_app/screens/notes_list.dart';
 
 class InputNotesDetails extends StatefulWidget {
   static const routeName = '/input_notes_details';
@@ -17,7 +18,9 @@ class _InputNotesDetailsState extends State<InputNotesDetails> {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back_ios),
+        leading: IconButton(onPressed: (){
+          Navigator.of(context).pushNamedAndRemoveUntil(NotesListScreen.routeName, (route) => false);
+        }, icon: Icon(Icons.arrow_back_ios)),
         title: Text("Input Notes"),
       ),
       body: notesBody(),

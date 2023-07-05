@@ -16,7 +16,7 @@ class _NotesListScreenState extends State<NotesListScreen> {
     return Scaffold(
       appBar: AppBar(title: Text("Notes"),),
       floatingActionButton: FloatingActionButton(onPressed: () {
-        debugPrint("FAB Clicked");
+        Navigator.of(context).pushNamedAndRemoveUntil(InputNotesDetails.routeName, (route) => false);
       },
       child: Icon(Icons.add),),
       body: getNotesListView(),
@@ -40,7 +40,7 @@ class _NotesListScreenState extends State<NotesListScreen> {
               subtitle: Text("Subtitle"),
               trailing: Icon(Icons.delete),
               onTap: () {
-                Navigator.of(context).pushNamed(InputNotesDetails.routeName);
+                Navigator.of(context).pushNamedAndRemoveUntil(InputNotesDetails.routeName, (route) => false);
               },
             ),
           );
