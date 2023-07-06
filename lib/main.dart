@@ -7,11 +7,11 @@ import 'screens/input_notes_details.dart';
 void main(){
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-      home: NotesListScreen(),
+      home: HomeScreen(),
     routes: {
       NotesListScreen.routeName: (BuildContext context) => NotesListScreen(),
       InputNotesDetails.routeName: (BuildContext context) =>
-         HomeScreen(),
+          InputNotesDetails(),
     }
   ));
 }

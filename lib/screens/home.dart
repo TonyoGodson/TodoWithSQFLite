@@ -26,6 +26,133 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: PageStorage(
+        child: currentScreen,
+        bucket: bucket,
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: (){},
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        notchMargin: 0,
+        child: Container(
+          height: 60.0,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(0),
+                    width: 100.0,
+                    color: Colors.red,
+                    child: MaterialButton(
+                      minWidth: 40.0,
+                      onPressed: (){
+                        setState(() {
+                          currentScreen = NotesListScreen();
+                          currentTab = 0;
+                        });
+                      },
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.home_filled,
+                            color: currentTab == 0 ? Colors.blue : Colors.grey,
+                          ),
+                          Text("Notes",
+                              style: TextStyle(
+                                fontSize: 12.0,
+                                color: currentTab == 0 ? Colors.blue : Colors.grey,))
+                        ],),
+                    ),
+                  ),
+                  Container(
+                    width: 80.0,
+                    color: Colors.green,
+                    child: MaterialButton(
+                      minWidth: 40.0,
+                      onPressed: (){
+                        setState(() {
+                          currentScreen = ScreenOne();
+                          currentTab = 1;
+                        });
+                      },
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.group_rounded,
+                            color: currentTab == 1 ? Colors.blue : Colors.grey,
+                          ),
+                          Text("Screen One",
+                              style: TextStyle(
+                                color: currentTab == 1 ? Colors.blue : Colors.grey,))
+                        ],),
+                    ),
+                  )
+                ],),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    width: 80.0,
+                    color: Colors.yellow,
+                    child: MaterialButton(
+                      minWidth: 40.0,
+                      onPressed: (){
+                        setState(() {
+                          currentScreen = ScreenTwo();
+                          currentTab = 2;
+                        });
+                      },
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.groups_rounded,
+                            color: currentTab == 2 ? Colors.blue : Colors.grey,
+                          ),
+                          Text("Screen Two",
+                              style: TextStyle(
+                                color: currentTab == 2 ? Colors.blue : Colors.grey,))
+                        ],),
+                    ),
+                  ),
+                  Container(
+                    width: 80.0,
+                    color: Colors.purple,
+                    child: MaterialButton(
+                      minWidth: 40.0,
+                      onPressed: (){
+                        setState(() {
+                          currentScreen = ScreenThree();
+                          currentTab = 3;
+                        });
+                      },
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.grid_view_rounded,
+                            color: currentTab == 3 ? Colors.blue : Colors.grey,
+                          ),
+                          Text("Screen Three",
+                              style: TextStyle(
+                                color: currentTab == 3 ? Colors.blue : Colors.grey,))
+                        ],),
+                    ),
+                  )
+                ],)
+            ],),
+        ),
+      ),
+    );;
   }
 }
