@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_app/screens/input_notes_details.dart';
 import 'package:to_do_app/screens/screen_one.dart';
 import 'package:to_do_app/screens/screen_three.dart';
 import 'package:to_do_app/screens/screen_two.dart';
@@ -6,6 +7,7 @@ import 'package:to_do_app/screens/screen_two.dart';
 import 'notes_list.dart';
 
 class HomeScreen extends StatefulWidget {
+  static const routeName = '/home_screen';
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -15,14 +17,14 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int currentTab = 0;
   final List<Widget> screens = [
-    NotesListScreen(),
+    InputNotesDetails(),
     ScreenOne(),
     ScreenTwo(),
     ScreenThree()
   ];
 
   final PageStorageBucket bucket = PageStorageBucket();
-  Widget currentScreen = NotesListScreen();
+  Widget currentScreen = InputNotesDetails();
 
   @override
   Widget build(BuildContext context) {
@@ -50,12 +52,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   Container(
                     padding: EdgeInsets.all(0),
                     width: 100.0,
-                    color: Colors.red,
+                    // color: Colors.red,
                     child: MaterialButton(
                       minWidth: 40.0,
                       onPressed: (){
                         setState(() {
-                          currentScreen = NotesListScreen();
+                          currentScreen = InputNotesDetails();
                           currentTab = 0;
                         });
                       },
@@ -66,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Icons.home_filled,
                             color: currentTab == 0 ? Colors.blue : Colors.grey,
                           ),
-                          Text("Notes",
+                          Text("Input Notes",
                               style: TextStyle(
                                 fontSize: 12.0,
                                 color: currentTab == 0 ? Colors.blue : Colors.grey,))
@@ -75,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   Container(
                     width: 80.0,
-                    color: Colors.green,
+                    // color: Colors.green,
                     child: MaterialButton(
                       minWidth: 40.0,
                       onPressed: (){
@@ -93,6 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           Text("Screen One",
                               style: TextStyle(
+                                fontSize: 12.0,
                                 color: currentTab == 1 ? Colors.blue : Colors.grey,))
                         ],),
                     ),
@@ -103,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Container(
                     width: 80.0,
-                    color: Colors.yellow,
+                    // color: Colors.yellow,
                     child: MaterialButton(
                       minWidth: 40.0,
                       onPressed: (){
@@ -121,13 +124,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           Text("Screen Two",
                               style: TextStyle(
+                                fontSize: 12.0,
                                 color: currentTab == 2 ? Colors.blue : Colors.grey,))
                         ],),
                     ),
                   ),
                   Container(
                     width: 80.0,
-                    color: Colors.purple,
+                    // color: Colors.purple,
                     child: MaterialButton(
                       minWidth: 40.0,
                       onPressed: (){
@@ -145,6 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           Text("Screen Three",
                               style: TextStyle(
+                                fontSize: 12.0,
                                 color: currentTab == 3 ? Colors.blue : Colors.grey,))
                         ],),
                     ),

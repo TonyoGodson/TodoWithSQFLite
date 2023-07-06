@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_app/screens/home.dart';
 import 'package:to_do_app/screens/input_notes_details.dart';
 
 class NotesListScreen extends StatefulWidget {
@@ -16,7 +17,7 @@ class _NotesListScreenState extends State<NotesListScreen> {
     return Scaffold(
       appBar: AppBar(title: Text("Notes"),),
       floatingActionButton: FloatingActionButton(onPressed: () {
-        Navigator.of(context).pushNamedAndRemoveUntil(InputNotesDetails.routeName, (route) => false);
+        Navigator.of(context).pushNamedAndRemoveUntil(HomeScreen.routeName, (route) => false);
       },
       child: Icon(Icons.add),),
       body: getNotesListView(),
@@ -40,7 +41,7 @@ class _NotesListScreenState extends State<NotesListScreen> {
               subtitle: Text("Subtitle"),
               trailing: Icon(Icons.delete),
               onTap: () {
-                Navigator.of(context).pushNamedAndRemoveUntil(InputNotesDetails.routeName, (route) => false);
+                Navigator.of(context).pushNamedAndRemoveUntil(HomeScreen.routeName, (route) => false);
               },
             ),
           );
